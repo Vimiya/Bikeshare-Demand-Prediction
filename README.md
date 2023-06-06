@@ -10,6 +10,8 @@ In below case study I will discuss the step by step approach to create a Machine
 
 You can use this flow as a template to solve any supervised ML Regression problem!
 
+# The flow of the case study is as below:
+
 * Reading the data in python
 * Defining the problem statement
 * Identifying the Target variable
