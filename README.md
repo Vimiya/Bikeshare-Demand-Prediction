@@ -1,4 +1,4 @@
-## End-to-End Machine Learning project
+# End-to-End Machine Learning project
 
 This case study is about a bike rental company. They want to predict the demand of bikes at any given hour of the day, so that, they can arrange for sufficient number of bike for the customers.
 
@@ -10,7 +10,7 @@ In below case study I will discuss the step by step approach to create a Machine
 
 You can use this flow as a template to solve any supervised ML Regression problem!
 
-# The flow of the case study is as below:
+### The flow of the case study is as below:
 
 * Reading the data in python
 * Defining the problem statement
