@@ -11,8 +11,7 @@ from src.exception import CustomException
 from src.logger import logging
 import os
 
-from src.utils import save_object
-# , evaluate_models
+from src.utils import save_object, evaluate_models
 
 @dataclass
 class DataTransformationConfig:
@@ -40,7 +39,6 @@ class DataTransformation:
 
                 steps=[
                 ("one_hot_encoder",OneHotEncoder(handle_unknown = 'error',drop='first',sparse=False)),
-                # ("one_hot_encoder",OneHotEncoder(handle_unknown = 'ignore')),
                 ("scaler",StandardScaler(with_mean=False))
                 ]
 
