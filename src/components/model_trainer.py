@@ -50,64 +50,64 @@ class ModelTrainer:
                 "KNeighbors Regressor":KNeighborsRegressor()
 
             }
-            # params={
-            #     "Decision Tree": {
-            #         'criterion':['squared_error', 'friedman_mse', 'absolute_error'],
-            #         'splitter':['best','random'],
-            #         'max_depth':[3,5,7,10,15,20,30,50],
-            #         'min_samples_leaf':[3,5,10,15,20,23,25],
-            #         'min_samples_split':[8,10,12,18,20],
-            #         'max_leaf_nodes':[None,10,20,30,40,50,60]
-            #     },
+            params={
+                "Decision Tree": {
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error'],
+                    'splitter':['best','random'],
+                    'max_depth':[3,5,7,10,15,20,30,50],
+                    'min_samples_leaf':[3,5,10,15,20,23,25],
+                    'min_samples_split':[8,10,12,18,20],
+                    'max_leaf_nodes':[None,10,20,30,40,50,60]
+                },
 
-            #     "Random Forest":{
-            #         'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],                 
-            #         'max_features':['sqrt','log2',None],
-            #         'n_estimators': [8,16,32,64,128,256]
-            #     },
-
-
-            #     "Gradient Boosting":{
-            #         'learning_rate': [0.2,0.02,0.02,1],
-            #         'max_depth'    : [2,4,6,8,10]
-            #     },
+                "Random Forest":{
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],                 
+                    'max_features':['sqrt','log2',None],
+                    'n_estimators': [8,16,32,64,128,256]
+                },
 
 
-            #     "Linear Regression":{},
+                "Gradient Boosting":{
+                    'learning_rate': [0.2,0.02,0.02,1],
+                    'max_depth'    : [2,4,6,8,10]
+                },
 
 
-            #     "CatBoosting Regressor":{
-            #         "iterations": [1000],
-            #         "learning_rate": [1e-3, 0.1],
-            #         "depth": [1, 10],
-            #         "subsample": [0.05, 1.0],
-            #         "colsample_bylevel": [0.05, 1.0],
-            #         "min_data_in_leaf": [1, 100]
-            #     },
+                "Linear Regression":{},
 
 
-            #     "Bagging Regressor":{
-            #         'base_estimator': [None, LinearRegression(), KNeighborsRegressor()],
-            #         'n_estimators': [20,50,100],
-            #         'max_samples': [0.5,1.0],
-            #         'max_features': [0.5,1.0],
-            #         'bootstrap': [True, False],
-            #         'bootstrap_features': [True, False]},
+                "CatBoosting Regressor":{
+                    "iterations": [1000],
+                    "learning_rate": [1e-3, 0.1],
+                    "depth": [1, 10],
+                    "subsample": [0.05, 1.0],
+                    "colsample_bylevel": [0.05, 1.0],
+                    "min_data_in_leaf": [1, 100]
+                },
 
-            #     "KNeighbors Regressor":{
-            #         'n_neighbors': [2,3,4,5,6],
-            #         'weights': ['uniform','distance']
-            #     }
+
+                "Bagging Regressor":{
+                    'base_estimator': [None, LinearRegression(), KNeighborsRegressor()],
+                    'n_estimators': [20,50,100],
+                    'max_samples': [0.5,1.0],
+                    'max_features': [0.5,1.0],
+                    'bootstrap': [True, False],
+                    'bootstrap_features': [True, False]},
+
+                "KNeighbors Regressor":{
+                    'n_neighbors': [2,3,4,5,6],
+                    'weights': ['uniform','distance']
+                }
 
                 
-            # }
+            }
 
             logging.info("Model evaluation stage and Hyperparameter tuning")
 
-            # model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models,param=params)
+            model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models,param=params)
                          
 
-            model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models)
+            # model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,models=models)
             
             logging.info(f"Model Evaluation Report: {model_report}") 
             ## To get best model score from dict
