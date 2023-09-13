@@ -50,55 +50,98 @@ class ModelTrainer:
                 "KNeighbors Regressor":KNeighborsRegressor()
 
             }
+
+            # I am only mentioning best parameters i got for each model (using Gridsearchcv) while testing on EDA Jupyter notebook present in notebook folder.
+            # Remaining parameter values i tested on will be kept commented
             params={
-                "Decision Tree": {
-                    'criterion':['squared_error', 'friedman_mse', 'absolute_error'],
-                    'splitter':['best','random'],
-                    'max_depth':[3,5,7,10,15,20,30,50],
-                    'min_samples_leaf':[3,5,10,15,20,23,25],
-                    'min_samples_split':[8,10,12,18,20],
-                    'max_leaf_nodes':[None,10,20,30,40,50,60]
+                # "Decision Tree": {
+                #     'criterion':['squared_error', 'friedman_mse', 'absolute_error'],
+                #     'splitter':['best','random'],
+                #     'max_depth':[3,5,7,10,15,20,30,50],
+                #     'min_samples_leaf':[3,5,10,15,20,23,25],
+                #     'min_samples_split':[8,10,12,18,20],
+                #     'max_leaf_nodes':[None,10,20,30,40,50,60]
+                # },
+ 
+              "Decision Tree": {
+                    'criterion':'friedman_mse',
+                    'splitter':'random',
+                    'max_depth':30,
+                    'min_samples_leaf':3,
+                    'min_samples_split':12,
+                    'max_leaf_nodes':None
                 },
+
+                # "Random Forest":{
+                #     'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],                 
+                #     'max_features':['sqrt','log2',None],
+                #     'n_estimators': [8,16,32,64,128,256]
+                # },
 
                 "Random Forest":{
-                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],                 
-                    'max_features':['sqrt','log2',None],
-                    'n_estimators': [8,16,32,64,128,256]
+                    'criterion':'friedman_mse',                 
+                    'max_features':None,
+                    'n_estimators': 256
                 },
 
+                # "Gradient Boosting":{
+                #     'learning_rate': [0.2,0.02,0.02,1],
+                #     'max_depth'    : [2,4,6,8,10]
+                # },
 
                 "Gradient Boosting":{
-                    'learning_rate': [0.2,0.02,0.02,1],
-                    'max_depth'    : [2,4,6,8,10]
+                    'learning_rate': 0.2,
+                    'max_depth'    : 8
                 },
 
 
                 "Linear Regression":{},
 
 
+                # "CatBoosting Regressor":{
+                #     "iterations": [1000],
+                #     "learning_rate": [1e-3, 0.1],
+                #     "depth": [1, 10],
+                #     "subsample": [0.05, 1.0],
+                #     "colsample_bylevel": [0.05, 1.0],
+                #     "min_data_in_leaf": [1, 100]
+                # },
+
                 "CatBoosting Regressor":{
-                    "iterations": [1000],
-                    "learning_rate": [1e-3, 0.1],
-                    "depth": [1, 10],
-                    "subsample": [0.05, 1.0],
-                    "colsample_bylevel": [0.05, 1.0],
-                    "min_data_in_leaf": [1, 100]
+                    "iterations": 1000,
+                    "learning_rate":0.1,
+                    "depth": 10,
+                    "subsample":1.0,
+                    "colsample_bylevel": 1.0,
+                    "min_data_in_leaf":1
                 },
 
 
+                # "Bagging Regressor":{
+                #     'base_estimator': [None, LinearRegression(), KNeighborsRegressor()],
+                #     'n_estimators': [20,50,100],
+                #     'max_samples': [0.5,1.0],
+                #     'max_features': [0.5,1.0],
+                #     'bootstrap': [True, False],
+                #     'bootstrap_features': [True, False]},
+
                 "Bagging Regressor":{
-                    'base_estimator': [None, LinearRegression(), KNeighborsRegressor()],
-                    'n_estimators': [20,50,100],
-                    'max_samples': [0.5,1.0],
-                    'max_features': [0.5,1.0],
-                    'bootstrap': [True, False],
-                    'bootstrap_features': [True, False]},
+                    'base_estimator':None,
+                    'n_estimators': 100,
+                    'max_samples': 1.0,
+                    'max_features': 1.0,
+                    'bootstrap':True,
+                    'bootstrap_features': False},
+
+                # "KNeighbors Regressor":{
+                #     'n_neighbors': [2,3,4,5,6],
+                #     'weights': ['uniform','distance']
+                # }
 
                 "KNeighbors Regressor":{
-                    'n_neighbors': [2,3,4,5,6],
-                    'weights': ['uniform','distance']
+                    'n_neighbors': 6,
+                    'weights': 'distance'
                 }
-
                 
             }
 

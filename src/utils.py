@@ -31,12 +31,15 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
             model = list(models.values())[i]
             para=param[list(models.keys())[i]]
 
-            gs = GridSearchCV(model,para,cv=3,n_jobs=-1)  # cv=3 by default will start with 3
-            gs.fit(X_train,y_train)
+            # gs = GridSearchCV(model,para,cv=3,n_jobs=-1) 
+            # gs.fit(X_train,y_train)
 
-            model.set_params(**gs.best_params_)   #selecting the best parameter
-            # Train model
-            model.fit(X_train,y_train)   # don't comment this
+            # model.set_params(**gs.best_params_)   #selecting the best parameter
+
+            model.set_params(**para) # mentioning only the best parameters I got from testing on all parameter values
+
+            # Train model           
+            model.fit(X_train,y_train)   
             y_train_pred = model.predict(X_train)
 
             y_test_pred = model.predict(X_test)
