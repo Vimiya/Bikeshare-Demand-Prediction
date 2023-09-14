@@ -31,9 +31,7 @@ def predict_datapoint():
             weathersit=request.form.get('weathersit'),
             temp=float(request.form.get('temp')),
             hum=float(request.form.get('hum')),
-            windspeed=float(request.form.get('windspeed'))
-
-        )
+            windspeed=float(request.form.get('windspeed')))
         pred_df=data.get_data_as_data_frame()
         print(pred_df)
         print("Before Prediction")

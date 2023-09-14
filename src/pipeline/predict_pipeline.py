@@ -33,8 +33,7 @@ class PredictPipeline:
             
             
             # since input features are in scaled format,  preds value is also in scaled format
-            # so convert the scaled predicted values to normal values
-            
+            # so convert the scaled predicted values to normal values            
             return preds
         except Exception as e:
             raise CustomException(e,sys)
