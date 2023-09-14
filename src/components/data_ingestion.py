@@ -44,7 +44,7 @@ class DataIngestion:
             # Hence dropping atemp since feeling temperature can be relatively less accurate compared to temperature.
             df=df.drop(['dteday','instant','casual', 'registered','atemp'],axis=1)
 
-            
+
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
 
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)

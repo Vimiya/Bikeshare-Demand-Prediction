@@ -1,0 +1,298 @@
+<html lang="en">
+
+  <head>
+    <style>
+      body {
+        background-image: url('https://cdn.vox-cdn.com/thumbor/1ZuKzZDhEda7zQjFfsADOTY45iI=/0x0:5148x3793/1200x800/filters:focal(2163x1486:2985x2308)/cdn.vox-cdn.com/uploads/chorus_image/image/65091873/shutterstock_400258885.0.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+      }
+      
+      
+
+    </style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BikeShare Count Prediction</title>
+
+    <!-- BootStrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <h1>
+      <legend style="color:white" class="display-4">Rental Bikeshare Count Prediction</legend>
+    </h1>
+  </head>
+
+  <body>
+
+
+    <br /><br /><br />
+    <br /><br /><br />
+
+
+
+    <div class="container">
+      <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Current Temperature?(in °C)</h6>
+                <!-- Temperature -->
+                <input type="" name="temp" id="temp" required="required"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Current Humidity level?</h6>
+                <!-- Humidity -->
+                <input type="" name="hum" id="hum" required="required"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Current Windspeed?</h6>
+                <!-- Windspeed -->
+                <input type="" name="windspeed" id="windspeed" required="required"/>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+      
+          <br />
+          <br />
+          <br />
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Season?</h6>
+                <!-- Season -->
+                <select name="season" id="season" required="required">
+                  <option value="1"> Spring </option>
+                  <option value="2"> Summer </option>
+                  <option value="3"> Fall </option>
+                  <option value="4"> Winter </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <style>
+                    div {resize: vertical;overflow: auto;}
+                </style>
+                <h6 class="card-title">Weather?</h6>
+                <!-- Weather -->
+                <select name="weathersit" id="weathersit" required="required">
+                  <option value="1"> Clear, Few clouds, Partly cloudy, Partly cloudy </option>
+                  <option value="2"> Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist </option>
+                  <option value="3"> Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds </option>
+                  <option value="4"> Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+      
+          <br />
+          <br />
+          <br />
+          <div class="col-sm-3">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Month? </h6>
+                <!-- Months -->
+                <select name="mnth" id="mnth" required="required">
+                  <option value="1"> January </option>
+                  <option value="2"> February </option>
+                  <option value="3"> March </option>
+                  <option value="4"> April </option>
+                  <option value="5"> May </option>
+                  <option value="6"> June </option>
+                  <option value="7"> July </option>
+                  <option value="8"> August </option>
+                  <option value="9"> September </option>
+                  <option value="10"> October </option>
+                  <option value="11"> November </option>
+                  <option value="12"> December </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+        
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Day of the week? </h6>
+              <!-- Weekdays -->
+              <select name="weekday" id="weekday" required="required">
+                <option value="0"> Sunday </option>
+                <option value="1"> Monday </option>
+                <option value="2"> Tuesday </option>
+                <option value="3"> Wednesday </option>
+                <option value="4"> Thursday </option>
+                <option value="5"> Friday </option>
+                <option value="6"> Saturday </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title"> Is it a Holiday today? </h6>
+              <!-- Holiday -->
+              <select name="holiday" id="holiday" required="required">
+                <option value="0">Not Holiday </option>
+                <option value="1">Holiday </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title"> Is it Workday today? </h6>
+              <!-- Workingday -->
+              <select name="workingday" id="workingday" required="required">
+                <option value="0">Not Workday </option>
+                <option value="1">Workday </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />       
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Year?</h6>
+              <!-- Year -->
+              <select name="yr" id="yr" required="required">
+                <option value="0"> 2011 </option>
+                <option value="1"> 2012 </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Time(Hour)</h6>
+              <!-- Time -->
+              <select name="hr" id="hr" required="required">
+                <option value="0"> 1 </option>
+                <option value="1"> 2 </option>
+                <option value="2"> 3 </option>
+                <option value="3"> 4 </option>
+                <option value="4"> 5 </option>
+                <option value="5"> 6 </option>
+                <option value="6"> 7 </option>
+                <option value="7"> 8 </option>
+                <option value="8"> 9 </option>
+                <option value="9"> 10 </option>
+                <option value="10"> 11 </option>
+                <option value="11"> 12 </option>
+                <option value="12"> 13 </option>
+                <option value="13"> 14 </option>
+                <option value="14"> 15 </option>
+                <option value="15"> 16 </option>
+                <option value="16"> 17 </option>
+                <option value="17"> 18 </option>
+                <option value="18"> 19 </option>
+                <option value="19"> 20 </option>
+                <option value="20"> 21 </option>
+                <option value="21"> 22 </option>
+                <option value="22"> 23 </option>
+                <option value="23"> 24 </option>
+
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+      <br />
+      <br />
+      <br />
+
+
+        <!-- Submit -->
+
+      <input class="btn btn-primary" type="submit" value="Predict Bike count"  style="background-color: #3936ee; color: white" /> 
+      </form>
+      
+      <br />
+      <br />
+      <br />
+
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h3>Predicted Bike Count {{results}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="color:white">©2023 Vimiya</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
