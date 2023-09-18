@@ -29,7 +29,7 @@ class DataTransformation:
         '''
         try:
             numerical_columns = ["temp", "hum","windspeed"]
-            categorical_columns = ["season","yr","mnth","hr","holiday", "weekday","workingday","weathersit"]
+            categorical_columns = ["season","yr","mnth","hr", "weekday","workingday","weathersit"]
             num_pipeline= Pipeline(
                 steps=[
                 ("scaler",StandardScaler())

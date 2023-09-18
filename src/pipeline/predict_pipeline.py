@@ -48,7 +48,7 @@ class CustomData:
         yr: str,
         mnth: str,
         hr: str,
-        holiday: str,
+        # holiday: str,
         weekday: str,
         workingday: str,
         weathersit: str,
@@ -64,7 +64,7 @@ class CustomData:
 
         self.hr = hr
 
-        self.holiday = holiday
+        # self.holiday = holiday
 
         self.weekday = weekday
 
@@ -85,7 +85,7 @@ class CustomData:
                 "yr": [self.yr],
                 "mnth": [self.mnth],
                 "hr": [self.hr],
-                "holiday": [self.holiday],
+                # "holiday": [self.holiday],
                 "weekday": [self.weekday],
                 "workingday": [self.workingday],
                 "weathersit": [self.weathersit],

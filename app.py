@@ -25,7 +25,7 @@ def predict_datapoint():
             yr=request.form.get('yr'),
             mnth=request.form.get('mnth'),
             hr=request.form.get('hr'),
-            holiday=request.form.get('holiday'),
+            # holiday=request.form.get('holiday'),
             weekday=request.form.get('weekday'),
             workingday=request.form.get('workingday'),
             weathersit=request.form.get('weathersit'),

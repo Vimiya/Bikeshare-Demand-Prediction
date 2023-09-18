@@ -4,6 +4,7 @@ from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
 import warnings
+warnings.filterwarnings('ignore')
 
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
@@ -42,7 +43,7 @@ class DataIngestion:
             # Also from EDA, it is a given that increasing casual or registered users both will be profitable factor for the business.
             # Also temp and atemp are very highly corelated and their respective colinearities with cnt are also same. 
             # Hence dropping atemp since feeling temperature can be relatively less accurate compared to temperature.
-            df=df.drop(['dteday','instant','casual', 'registered','atemp'],axis=1)
+            df=df.drop(['dteday','instant','casual', 'registered','atemp','holiday'],axis=1)
 
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
