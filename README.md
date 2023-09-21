@@ -10,6 +10,8 @@ Task here is to create a machine learning model which can predict the count of b
 
 **The goal here is to build an end-to-end regression task. Here the result will be given by the best performing hyper tuned Machine Learning model.**
 
+![image](https://github.com/Vimiya/Bikeshare-Demand-Prediction/assets/95517635/4f75029c-42b3-4355-bf44-611ff999462b)
+
 In below case study I will discuss the step by step approach to create a Machine Learning predictive model in such scenarios.
 
 You can use this flow as a template to solve any supervised ML Regression problem!
