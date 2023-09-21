@@ -1,5 +1,7 @@
 ## End to End ML Project
 
+https://bikeshare-demand-prediction-production.up.railway.app/predictdata
+
 This case study is about a bike rental company. They want to predict the demand of bikes at any given hour of the day, so that, they can arrange for sufficient number of bike for the customers.
 
 They have shared the hourly rental data for  two years.
